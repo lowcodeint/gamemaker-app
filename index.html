@@ -8,13 +8,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#5b6cff" />
     <title>Game Maker</title>
-    <script type="module" crossorigin src="/gamemaker-app/assets/index-CyJCEQuV.js"></script>
-    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-9pY_F6x-.css">
+    <script type="module" crossorigin src="/gamemaker-app/assets/index-D6uA4F_Y.js"></script>
+    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-ByuiYFPg.css">
   </head>
   <body>
     <!-- HOME: my games -->
     <main id="view-home" class="view">
       <header class="top">
+        <button id="btn-home-back" class="back">‹</button>
         <h1 id="home-title">🎮 My Games</h1>
       </header>
       <div id="home-tabs" class="tabs">
@@ -30,7 +31,7 @@
       </div>
       <div id="game-list" class="cards"></div>
       <p class="grownups"><button id="btn-parent">for grown-ups</button></p>
-      <p class="session-link"><button id="btn-session">⏱️ Back to Start a session</button></p>
+
       <div class="bottom-bar three-btns">
         <button id="btn-make" class="big-btn">✨ Game</button>
         <button id="btn-show" class="big-btn show-btn">🎬 Show</button>
@@ -191,6 +192,9 @@
       <div id="parent-log" class="log"></div>
       <p class="tiny"><button id="btn-parent-clear" class="linkish">Clear all data and start as a new kid</button></p>
       <p class="tiny">Wipes games, shows, songs, unlocks, the ability estimate, and session history on this device. The next session runs the first-time walkthrough again.</p>
+      <div class="bottom-bar">
+        <button id="btn-parent-done" class="big-btn">🏠 Done</button>
+      </div>
     </main>
 
     <!-- PICKER: build the picture sentence -->
