@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "jessica",
+    "label": "Jessica (warm)",
+    "elevenlabs": "Jessica - Playful, Bright, Warm",
+    "sample": "say-let-s-make-a-game"
+  },
+  {
+    "slug": "callum",
+    "label": "Callum (trickster)",
+    "elevenlabs": "Callum - Husky Trickster",
+    "sample": "say-let-s-make-a-game"
+  },
+  {
+    "slug": "laura",
+    "label": "Laura (silly)",
+    "elevenlabs": "Laura - Enthusiast, Quirky Attitude",
+    "sample": "say-let-s-make-a-game"
+  }
+]

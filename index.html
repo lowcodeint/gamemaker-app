@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#5b6cff" />
+    <title>Game Maker</title>
+    <script type="module" crossorigin src="/gamemaker-app/assets/index-Cmb7NtJP.js"></script>
+    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-BMCII77f.css">
+  </head>
+  <body>
+    <!-- HOME: my games -->
+    <main id="view-home" class="view">
+      <header class="top">
+        <h1 id="home-title">🎮 My Games</h1>
+      </header>
+      <div id="home-tabs" class="tabs">
+        <button class="tab on" data-type="all">All</button>
+        <button class="tab" data-type="game">🎮 Games</button>
+        <button class="tab" data-type="show">🎬 Shows</button>
+        <button class="tab" data-type="song">🎵 Songs</button>
+      </div>
+      <div id="empty" class="empty hidden">
+        <div class="empty-emoji">🐻 ➕ 🐟</div>
+        <p>Let's make your first game!</p>
+        <button id="btn-make-empty" class="big-btn">✨ Make a Game</button>
+      </div>
+      <div id="game-list" class="cards"></div>
+      <p class="grownups"><button id="btn-parent">for grown-ups</button></p>
+      <p class="session-link"><button id="btn-session">⏱️ Back to Start a session</button></p>
+      <div class="bottom-bar three-btns">
+        <button id="btn-make" class="big-btn">✨ Game</button>
+        <button id="btn-show" class="big-btn show-btn">🎬 Show</button>
+        <button id="btn-song" class="big-btn song-mode-btn">🎵 Song</button>
+      </div>
+    </main>
+
+    <!-- SONG: pick ingredients -->
+    <main id="view-song" class="view hidden">
+      <header class="top">
+        <button id="btn-song-back" class="back">‹</button>
+        <h1>Build a Song</h1>
+      </header>
+      <div id="song-list-wrap" class="hidden">
+        <div class="row-prompt">🎵 My songs</div>
+        <div id="song-list" class="song-list"></div>
+      </div>
+      <div class="row-prompt">Make a new one</div>
+      <div class="sentence-box">
+        <div id="song-sentence" class="sentence"></div>
+        <div id="song-title-preview" class="sentence-title"></div>
+      </div>
+      <div id="song-rows"></div>
+      <div class="bottom-bar">
+        <button id="btn-song-make" class="big-btn go">🎤 Make My Song!</button>
+      </div>
+    </main>
+
+    <!-- SONG: waiting -->
+    <main id="view-songwait" class="view center hidden">
+      <div id="songwait-emoji" class="bake-emoji">🐻🧺🐟</div>
+      <p id="songwait-msg" class="bake-msg">Writing your song...</p>
+      <pre id="songwait-lyrics" class="lyrics-preview"></pre>
+    </main>
+
+    <!-- SONG: player -->
+    <main id="view-songplayer" class="view hidden">
+      <header class="top">
+        <button id="btn-songplayer-back" class="back">‹</button>
+        <h1 id="songplayer-title">Bear and the Fish</h1>
+      </header>
+      <div class="challenge-reward">
+        <div id="songplayer-made" class="made-by hidden">🎉 You made this song! It's saved in My songs. 🎉</div>
+        <span id="songplayer-emoji" class="reward-emoji">🐻 🧺 🐟</span>
+        <p id="songplayer-mode" class="tiny">🎶 Sung just for you</p>
+      </div>
+      <div id="songplayer-lyrics" class="lyrics"></div>
+      <div class="song-actions">
+        <button id="btn-song-play" class="big-btn go">⏹ Stop</button>
+        <button id="btn-song-another" class="big-btn alt">🎤 Make another</button>
+      </div>
+    </main>
+
+    <!-- SESSION SETUP (parent) -->
+    <main id="view-session" class="view front hidden">
+      <header class="top front-top">
+        <h1>🎮 Game Maker</h1>
+      </header>
+      <p class="front-lead">Pick a time. Hand it to your kid. That's it.</p>
+      <p class="tiny front-sub">They'll make games, play them, learn a little, and put on shows. It adapts to whoever is holding it and hands back a short report when time is up.</p>
+      <div class="row-prompt">How long?</div>
+      <div class="chips three" id="session-minutes">
+        <button class="chip" data-min="10"><span class="chip-emoji">⏱️</span><span class="chip-label">10 min</span></button>
+        <button class="chip on" data-min="20"><span class="chip-emoji">⏱️</span><span class="chip-label">20 min</span></button>
+        <button class="chip" data-min="30"><span class="chip-emoji">⏱️</span><span class="chip-label">30 min</span></button>
+      </div>
+      <div class="row-prompt">Difficulty</div>
+      <div class="chips three" id="session-level">
+        <button class="chip on" data-level="auto"><span class="chip-emoji">🪄</span><span class="chip-label">Auto</span></button>
+        <button class="chip" data-level="1"><span class="chip-emoji">🐢</span><span class="chip-label">Easy</span></button>
+        <button class="chip" data-level="3"><span class="chip-emoji">🚶</span><span class="chip-label">Medium</span></button>
+        <button class="chip" data-level="5"><span class="chip-emoji">🐇</span><span class="chip-label">Hard</span></button>
+      </div>
+      <p class="tiny" id="session-ability"></p>
+      <p class="tiny">To end early, hold the little ring in the corner for two seconds.</p>
+      <p class="front-links"><button id="btn-front-parent">for grown-ups</button></p>
+      <div class="bottom-bar">
+        <button id="btn-session-start" class="big-btn go">▶️ Start and hand it over</button>
+      </div>
+    </main>
+
+    <!-- SESSION CHOOSER (kid): after the first loop, pick what's next -->
+    <main id="view-choose" class="view center hidden">
+      <h1 class="choose-title">What next?</h1>
+      <div class="choose-grid">
+        <button class="choose-tile" data-kind="make"><span>✨</span>Game</button>
+        <button class="choose-tile" data-kind="show"><span>🎬</span>Show</button>
+        <button class="choose-tile" data-kind="song"><span>🎵</span>Song</button>
+        <button class="choose-tile" data-kind="learn"><span>🧠</span>Learn</button>
+      </div>
+    </main>
+
+    <!-- SESSION REPORT (parent) -->
+    <main id="view-report" class="view hidden">
+      <header class="top"><h1>🎉 All done!</h1></header>
+      <div class="challenge-reward">
+        <span class="reward-emoji">🏆</span>
+        <p id="report-level">Preschooler</p>
+        <p id="report-note" class="tiny"></p>
+      </div>
+      <div id="report-stats" class="summary"></div>
+      <div class="bottom-bar">
+        <button id="btn-report-done" class="big-btn go">▶️ Start another</button>
+        <p class="tiny center-text"><button id="btn-report-games" class="linkish">See what they made</button></p>
+      </div>
+    </main>
+
+    <div id="session-ring" class="session-ring hidden" title="Hold to end the session"></div>
+    <button id="session-skip" class="session-skip hidden">⏭️ Next</button>
+    <div id="demo-count" class="demo-count hidden">🎵</div>
+    <button id="session-mute" class="session-mute hidden" title="Mute the song">🔊</button>
+    <div id="session-next" class="overlay unlocked session-next hidden">
+      <div class="next-emoji start-emoji">✨</div>
+      <h2 class="next-text">Time to make a game!</h2>
+    </div>
+
+    <!-- SHOW: the busy board -->
+    <main id="view-show" class="view show hidden">
+      <div class="show-stage">
+        <div class="stage"></div>
+        <div class="show-top">
+          <button id="btn-show-back" class="back light">‹</button>
+          <div id="show-title" class="show-title">My Show</div>
+          <div class="rec-controls">
+            <button id="btn-replay" class="recbtn hidden" title="Play it back">▶️</button>
+            <button id="btn-save-show" class="recbtn hidden" title="Save my show">💾</button>
+            <button id="btn-rec" class="recbtn rec" title="Record">⏺</button>
+          </div>
+        </div>
+        <div id="rec-badge" class="rec-badge hidden">● REC 30</div>
+        <div id="show-saved" class="toast hidden">🎬 Saved to My Games!</div>
+      </div>
+      <div class="board-wrap">
+        <div class="level-row small">
+          <span>🐢</span>
+          <input id="show-level" type="range" min="1" max="5" step="1" value="2" aria-label="Grown-up dial: how many buttons" />
+          <span>🐇</span>
+          <small>buttons</small>
+        </div>
+        <div id="board" class="board"></div>
+      </div>
+    </main>
+
+    <!-- PARENT: what the kid did -->
+    <main id="view-parent" class="view hidden">
+      <header class="top">
+        <button id="btn-parent-back" class="back">‹</button>
+        <h1>For grown-ups</h1>
+      </header>
+      <div id="parent-summary" class="summary"></div>
+      <h2 class="h2">Free play</h2>
+      <div class="voice-box"><p class="tiny" style="margin:0;flex:1">Everything without the session: make games, shows, and songs, and see what they made.</p><button id="btn-all-games" class="linkish">Open free play</button></div>
+      <h2 class="h2">Ability</h2>
+      <div class="voice-box"><p id="ability-text" class="tiny" style="margin:0;flex:1"></p><button id="ability-unpin" class="linkish hidden">Back to auto</button></div>
+      <h2 class="h2">Sessions</h2>
+      <div id="sessions-list" class="log"></div>
+      <h2 class="h2">Voice</h2>
+      <div class="voice-box">
+        <select id="voice-select"></select>
+        <button id="voice-test" class="say">🔊</button>
+        <p id="voice-note" class="tiny"></p>
+      </div>
+      <h2 class="h2">Timeline</h2>
+      <div id="parent-log" class="log"></div>
+      <p class="tiny"><button id="btn-parent-clear" class="linkish">Clear all data and start as a new kid</button></p>
+      <p class="tiny">Wipes games, shows, songs, unlocks, the ability estimate, and session history on this device. The next session runs the first-time walkthrough again.</p>
+    </main>
+
+    <!-- PICKER: build the picture sentence -->
+    <main id="view-picker" class="view hidden">
+      <header class="top">
+        <button id="btn-picker-back" class="back">‹</button>
+        <h1 id="picker-title">Make a Game</h1>
+      </header>
+      <div class="sentence-box">
+        <div id="sentence" class="sentence"></div>
+        <div id="sentence-title" class="sentence-title"></div>
+      </div>
+      <div id="rows"></div>
+      <section class="row">
+        <div class="row-prompt">✨ Coming soon</div>
+        <div id="doors" class="chips"></div>
+      </section>
+      <div class="bottom-bar">
+        <button id="btn-bake" class="big-btn go">🚀 Make My Game!</button>
+      </div>
+      <div id="door-modal" class="overlay unlocked hidden">
+        <div id="door-emoji" class="start-emoji">🎙️</div>
+        <h2 id="door-title">Family voices</h2>
+        <p id="door-blurb" class="big">Record Mom and Dad.</p>
+        <p class="tiny">This isn't ready yet. Should we build it?</p>
+        <button id="door-yes" class="big-btn go">🙌 Yes please!</button>
+        <button id="door-no" class="big-btn alt">Maybe later</button>
+      </div>
+    </main>
+
+    <!-- CHALLENGE: earn an unlock -->
+    <main id="view-challenge" class="view hidden">
+      <header class="top">
+        <button id="btn-challenge-back" class="back">‹</button>
+        <h1 id="challenge-title">Count to 10!</h1>
+      </header>
+      <div class="level-row">
+        <span>🐢</span>
+        <input id="level" type="range" min="1" max="5" step="1" value="2" aria-label="Grown-up difficulty" />
+        <span>🐇</span>
+        <small id="level-label">grown-up dial</small>
+      </div>
+      <div class="challenge-reward">
+        <span id="challenge-emoji" class="reward-emoji">🚀</span>
+        <p id="challenge-prompt">Tap the numbers in order to unlock Space!</p>
+        <button id="challenge-say" class="say">🔊</button>
+      </div>
+      <div id="challenge-progress" class="progress"></div>
+      <div id="challenge-display" class="display hidden"></div>
+      <div id="challenge-grid" class="numbers"></div>
+      <div id="challenge-done" class="overlay unlocked hidden">
+        <div class="start-emoji">🎉</div>
+        <h2 id="challenge-done-title">You unlocked Space!</h2>
+        <p class="tiny">You counted all the way to 10!</p>
+        <button id="btn-challenge-go" class="big-btn go">🚀 Let's go!</button>
+      </div>
+    </main>
+
+    <!-- LYRIC PICKER: the song is the picker -->
+    <main id="view-lyric" class="view hidden">
+      <header class="top">
+        <h1 id="lyric-title">Bear and the Fish</h1>
+      </header>
+      <p class="tiny lyric-hint">Tap a picture in the song to change it.</p>
+      <div id="lyric-lines" class="lyrics lyric-editor"></div>
+      <div id="lyric-options" class="lyric-options hidden">
+        <div class="row-prompt" id="lyric-options-title">Who?</div>
+        <div class="chips" id="lyric-chips"></div>
+      </div>
+      <div class="bottom-bar">
+        <button id="btn-lyric-make" class="big-btn go">🎤 Make my song and game!</button>
+      </div>
+    </main>
+
+    <!-- BAKING: placeholder for the agent workflow -->
+    <main id="view-baking" class="view center hidden">
+      <div id="bake-emoji" class="bake-emoji">🐻🥅🐟</div>
+      <div class="bake-track"><div id="bake-bar" class="bake-bar"></div></div>
+      <p id="bake-msg" class="bake-msg">Getting ready...</p>
+    </main>
+
+    <!-- PLAY: the generated game -->
+    <main id="view-play" class="view play hidden">
+      <div class="stage"></div>
+      <div class="flash"></div>
+      <div class="hud">
+        <button id="btn-play-back" class="back light">‹</button>
+        <div class="hud-left">⭐ 0</div>
+        <div class="hud-right">❤️❤️❤️</div>
+        <button id="btn-pause" class="back light pause">⏸</button>
+      </div>
+      <div class="overlay overlay-pause hidden">
+        <h2>Paused</h2>
+        <button class="big-btn go btn-resume">▶️ Keep playing</button>
+        <button id="btn-change" class="big-btn">✏️ Change my game</button>
+        <button id="btn-home-pause" class="big-btn alt">🏠 My Games</button>
+      </div>
+      <div class="banner hidden"></div>
+      <div class="overlay overlay-start">
+        <div class="made-by hidden">🎉 You made this game! 🎉</div>
+        <div class="start-emoji">🐻 🐟</div>
+        <h2 class="start-title">Bear Catches Fish</h2>
+        <div class="tap">👆 TAP TO PLAY</div>
+        <p class="tiny">Tap anywhere to throw</p>
+      </div>
+      <div class="overlay overlay-result hidden">
+        <h2 class="result-title">Time's up!</h2>
+        <p class="result-score">You caught 12 🐟!</p>
+        <button class="big-btn btn-again">🔁 Play Again</button>
+        <button id="btn-home" class="big-btn alt">🏠 My Games</button>
+      </div>
+    </main>
+
+  </body>
+</html>
