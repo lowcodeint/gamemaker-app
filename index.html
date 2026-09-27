@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#5b6cff" />
     <title>Game Maker</title>
-    <script type="module" crossorigin src="/gamemaker-app/assets/index-DpUFRkbO.js"></script>
-    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-Cbl_u2G4.css">
+    <script type="module" crossorigin src="/gamemaker-app/assets/index-C_DLRndE.js"></script>
+    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-DmLuOCjX.css">
   </head>
   <body>
     <!-- HOME: my games -->
@@ -107,14 +107,23 @@
       </div>
     </main>
 
+    <!-- MICRO GAMES: quick tap games, one after another -->
+    <main id="view-micro" class="view micro hidden">
+      <div class="micro-top"><div class="micro-track"><div class="micro-bar"></div></div><div class="micro-score">⭐ 0</div></div>
+      <div class="micro-stage"></div>
+      <div class="micro-intro overlay unlocked hidden"><div class="mi-emoji start-emoji">🫧</div><h2 class="mi-text">Pop the bubbles!</h2></div>
+      <div class="micro-result overlay unlocked hidden"><div class="start-emoji">🎉</div><h2 class="mr-text">Nice!</h2><p class="mr-score result-score">⭐ 0</p></div>
+    </main>
+
     <!-- SESSION CHOOSER (kid): after the first loop, pick what's next -->
     <main id="view-choose" class="view center hidden">
       <h1 class="choose-title">What next?</h1>
       <div class="choose-grid">
-        <button class="choose-tile" data-kind="make"><span>✨</span>Game</button>
-        <button class="choose-tile" data-kind="show"><span>🎬</span>Show</button>
+        <button class="choose-tile" data-kind="games"><span>🫧</span>Quick games</button>
+        <button class="choose-tile" data-kind="make"><span>✨</span>My game</button>
         <button class="choose-tile" data-kind="song"><span>🎵</span>Song</button>
         <button class="choose-tile" data-kind="learn"><span>🧠</span>Learn</button>
+        <button class="choose-tile" data-kind="show"><span>🎬</span>Show</button>
       </div>
     </main>
 
@@ -139,6 +148,7 @@
     </div>
     <div id="session-toast" class="toast session-toast hidden">Hold for 2 seconds to end</div>
     <button id="session-skip" class="session-skip hidden">⏭️ Next</button>
+    <button id="session-song-btn" class="session-song hidden" title="Make a song">🎵</button>
     <div id="demo-count" class="demo-count hidden">🎵</div>
     <button id="session-mute" class="session-mute hidden" title="Mute the song">🔊</button>
     <div id="session-next" class="overlay unlocked session-next hidden">
