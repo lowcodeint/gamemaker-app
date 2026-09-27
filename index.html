@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#5b6cff" />
     <title>Game Maker</title>
-    <script type="module" crossorigin src="/gamemaker-app/assets/index-D6uA4F_Y.js"></script>
-    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-ByuiYFPg.css">
+    <script type="module" crossorigin src="/gamemaker-app/assets/index-BkcKIzWi.js"></script>
+    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-DfbIDCjc.css">
   </head>
   <body>
     <!-- HOME: my games -->
@@ -133,7 +133,11 @@
       </div>
     </main>
 
-    <div id="session-ring" class="session-ring hidden" title="Hold to end the session"></div>
+    <div id="session-ring-wrap" class="session-ring-wrap hidden">
+      <div id="session-ring" class="session-ring" title="Hold to end the session"><span class="ring-x">✕</span></div>
+      <small class="ring-label">hold to end</small>
+    </div>
+    <div id="session-toast" class="toast session-toast hidden">Hold the ring for 2 seconds to end</div>
     <button id="session-skip" class="session-skip hidden">⏭️ Next</button>
     <div id="demo-count" class="demo-count hidden">🎵</div>
     <button id="session-mute" class="session-mute hidden" title="Mute the song">🔊</button>
