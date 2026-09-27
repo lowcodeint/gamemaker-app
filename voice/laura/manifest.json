@@ -1,6 +1,6 @@
 {
   "voice": "Laura - Enthusiast, Quirky Attitude",
-  "generated": "2026-09-27T17:46:49.142Z",
+  "generated": "2026-09-27T18:36:03.033Z",
   "lines": {
     "label-bear": "Bear",
     "label-soldier": "Soldier",
@@ -145,6 +145,11 @@
     "say-making-up-a-song-about-your-game": "Making up a song about your game!",
     "say-now-make-your-own-song": "Now make your own song!",
     "say-what-do-you-want-to-do": "What do you want to do?",
+    "say-who": "Who?",
+    "say-does-what": "Does what?",
+    "say-to-what": "To what?",
+    "say-using-what": "Using what?",
+    "say-where": "Where?",
     "say-let-s-make-a-show": "Let's make a show!",
     "say-let-s-make-a-song": "Let's make a song!",
     "say-you-made-this-show": "You made this show!",
