@@ -8,8 +8,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#5b6cff" />
     <title>Game Maker</title>
-    <script type="module" crossorigin src="/gamemaker-app/assets/index-C_DLRndE.js"></script>
-    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-DmLuOCjX.css">
+    <script type="module" crossorigin src="/gamemaker-app/assets/index-BbQ-g_Vz.js"></script>
+    <link rel="stylesheet" crossorigin href="/gamemaker-app/assets/index-kDlClvFy.css">
   </head>
   <body>
     <!-- HOME: my games -->
@@ -144,13 +144,18 @@
 
     <div id="session-ring-wrap" class="session-ring-wrap hidden">
       <div id="session-ring" class="session-ring" title="Hold to end the session"><span class="ring-x">✕</span></div>
-      <small class="ring-label">hold to end</small>
+      <small class="ring-label">grown-ups</small>
     </div>
-    <div id="session-toast" class="toast session-toast hidden">Hold for 2 seconds to end</div>
+    <div id="session-toast" class="toast session-toast hidden">Hold for 2 seconds</div>
     <button id="session-skip" class="session-skip hidden">⏭️ Next</button>
-    <button id="session-song-btn" class="session-song hidden" title="Make a song">🎵</button>
+    <div id="grownup-menu" class="overlay unlocked grownup-menu hidden">
+      <h2>Grown-ups</h2>
+      <button id="gu-keep" class="big-btn go">▶️ Keep going</button>
+      <button id="gu-mute" class="big-btn">🔇 Mute music</button>
+      <button id="gu-end" class="big-btn alt">⏹ End the session</button>
+    </div>
     <div id="demo-count" class="demo-count hidden">🎵</div>
-    <button id="session-mute" class="session-mute hidden" title="Mute the song">🔊</button>
+
     <div id="session-next" class="overlay unlocked session-next hidden">
       <div class="next-emoji start-emoji">✨</div>
       <h2 class="next-text">Time to make a game!</h2>
